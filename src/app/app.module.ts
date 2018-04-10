@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { WeatherPreviewComponent } from './weather-preview/weather-preview.component';
+import {WeatherPreviewModule} from './weather-preview/weather-preview.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    WeatherPreviewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

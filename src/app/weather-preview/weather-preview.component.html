@@ -1,0 +1,14 @@
+<div class="container-header">
+  <div class="header">Weather Forecast for {{weather.region}}</div>
+</div>
+<div class="container-picture">
+  <!--<img class = "svg-icon path" src="https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg">-->
+  <object id = "svgObject" type="image/svg+xml" data="https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg">
+    Your browser doesn't support SVG
+  </object>
+</div>
+<ul class="description-list">
+  <li class = "item">{{weather.time}}</li>
+  <li class = "item">{{weather.temperature}}</li>
+  <li class = "item">{{weather.description}}</li>
+</ul>
