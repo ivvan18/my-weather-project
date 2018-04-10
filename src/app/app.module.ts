@@ -5,15 +5,17 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { WeatherPreviewComponent } from './weather-preview/weather-preview.component';
 import {WeatherPreviewModule} from './weather-preview/weather-preview.module';
+import { DegreesPipe } from './degrees/degrees.pipe';
+import {DegreesModule} from './degrees/degrees.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    WeatherPreviewModule
+    WeatherPreviewModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
