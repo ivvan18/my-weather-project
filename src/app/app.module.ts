@@ -7,11 +7,12 @@ import { WeatherPreviewComponent } from './weather-preview/weather-preview.compo
 import {WeatherPreviewModule} from './weather-preview/weather-preview.module';
 import { DegreesPipe } from './degrees/degrees.pipe';
 import {DegreesModule} from './degrees/degrees.module';
+import { PreviewSearchComponent } from './preview-search/preview-search.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
