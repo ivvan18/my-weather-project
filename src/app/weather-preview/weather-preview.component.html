@@ -13,5 +13,5 @@
     <li class = "item">{{weather.temperature | degrees}}</li>
     <li class = "item">{{weather.description}}</li>
   </ul>
-  <app-preview-search></app-preview-search>
+  <app-preview-search (searchRegion)="onSearchClick($event)"></app-preview-search>
 </div>

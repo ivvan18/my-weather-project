@@ -7,3 +7,9 @@ export const DEFAULT_WEATHER: IWeatherPreview = {
   description: 'few clouds',
   image_path: 'https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg'
 };
+
+export const city_ids = {
+  'Stavropol' : 487846,
+  'Moscow' : 524901,
+  'Kaluga' : 553915
+}

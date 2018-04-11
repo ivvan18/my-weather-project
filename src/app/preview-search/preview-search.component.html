@@ -1,7 +1,15 @@
 <div class="search-container">
   <p class = "search-paragraph">Find a Forecast</p>
-  <button class = "search-button" type="submit">SEARCH</button>
-  <div class="form-container">
-    <input class="search-input" placeholder="Search for location" type="text" />
-  </div>​
+  <form [formGroup] = "form" (submit)="onSubmit()">
+    <button class = "search-button"
+            type="submit">
+      SEARCH</button>
+    <div class="form-container">
+      <input formControlName="region"
+             class="search-input"
+             [class.is-invalid]="form.get('region').invalid && form.get('region').touched"
+             placeholder="Search for location"
+             type="text" />
+    </div>​
+  </form>
 </div>
