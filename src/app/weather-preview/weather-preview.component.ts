@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IWeatherPreview} from '../models/i-weather-preview';
 import {WeatherPreviewService} from './weather-preview.service';
 import {IWeatherRegion} from '../models/i-weather-region';
-import {DEFAULT_WEATHER} from '../models/default-weather';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-weather-preview',
@@ -10,23 +10,24 @@ import {DEFAULT_WEATHER} from '../models/default-weather';
   styleUrls: ['./weather-preview.component.css']
 })
 export class WeatherPreviewComponent implements OnInit {
-  weather: IWeatherPreview = DEFAULT_WEATHER;
+  weather: IWeatherPreview = {
+    region: 'Bangladesh',
+    temperature: 19,
+    time: '20:23',
+    description: 'few clouds',
+    image_path: this.sanitizer.bypassSecurityTrustResourceUrl('https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg')
+  };
 
-  constructor(private weatherPreviewService: WeatherPreviewService) { }
+  constructor(private weatherPreviewService: WeatherPreviewService,
+              private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit() {
   }
 
   onSearchClick(request: IWeatherRegion) {
-    this.weatherPreviewService.getWeather(request)
-      .subscribe(data  => {
-        this.weather.region = data['name'];
-        this.weather.description = data['weather'][0]['description'];
-        const date = new Date();
-        this.weather.time = `${date.getHours()}:${date.getMinutes()}`;
-        this.weather.temperature = data['main']['temp'];
-        this.weather.image_path = '../../assets/weather_icons/bkn_n.svg';
-      });
+    this.weatherPreviewService.getWeather(request);
+    this.weather = this.weatherPreviewService.weather;
   }
 
 }
