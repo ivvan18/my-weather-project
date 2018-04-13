@@ -3,20 +3,19 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { WeatherPreviewComponent } from './weather-preview/weather-preview.component';
-import {WeatherPreviewModule} from './weather-preview/weather-preview.module';
-import { DegreesPipe } from './degrees/degrees.pipe';
-import {DegreesModule} from './degrees/degrees.module';
-import { PreviewSearchComponent } from './preview-search/preview-search.component';
-
+import { WeatherPreviewModule } from './weather-preview/weather-preview.module';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardModule} from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     WeatherPreviewModule,
+    AppRoutingModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

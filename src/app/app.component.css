@@ -1,0 +1,40 @@
+.navigation-intro{
+  height: 35px;
+  padding: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: 'Abel', sans-serif;
+}
+
+.brand-name{
+  float:left;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav-name{
+  float:right;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 2%;
+}
+
+.nav-item{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-item::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: dodgerblue;
+  transition: width .3s;
+}
+
+.nav-item:hover::after{
+  width: 100%;
+  transition: width .3s;
+}

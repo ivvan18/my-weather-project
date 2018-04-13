@@ -40,6 +40,7 @@ export class WeatherPreviewService {
         this.weather.region = data['name'];
         this.weather.description = data['weather'][0]['description'];
         const timeZ: string = timezone(data['coord']['lat'], data['coord']['lon']);
+        console.log(timeZ);
         this.weather.time = tz(data['dt'] * 1000, timeZ).format('HH:mm');
         this.weather.temperature = data['main']['temp'];
         let description: string = data['weather'][0]['description'];
