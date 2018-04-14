@@ -5,11 +5,17 @@
             type="submit">
       SEARCH</button>
     <div class="form-container">
-      <input formControlName="region"
-             class="search-input"
-             [class.is-invalid]="form.get('region').invalid && form.get('region').touched"
-             placeholder="Search for location"
-             type="text" />
+      <div class="dropdown-content">
+        <input formControlName="region"
+               class="search-input"
+               [class.is-invalid]="form.get('region').invalid && form.get('region').touched"
+               placeholder="Search for location"
+               type="text" />
+        <!--<a (click)="onOptionClicked($event)">Vladivostok</a>-->
+        <!--<a (click)="onOptionClicked($event)">Moscow</a>-->
+        <!--<a (click)="onOptionClicked($event)">Kaluga</a>-->
+        <!--<a (click)="onOptionClicked($event)">Los Angeles</a>-->
+      </div>
     </div>​
   </form>
 </div>

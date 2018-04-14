@@ -1,5 +1,4 @@
 import {IWeatherPreview} from './i-weather-preview';
-import {Sanitizer} from '@angular/core';
 
 export const DEFAULT_WEATHER: IWeatherPreview = {
   region: 'Bangladesh',

@@ -1,6 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IWeatherRegion} from '../models/i-weather-region';
+import 'rxjs/add/operator/filter';
+
+
 
 @Component({
   selector: 'app-preview-search',
@@ -20,8 +23,17 @@ export class PreviewSearchComponent implements OnInit {
 
     this.form.valueChanges
       .subscribe(() => {
-        console.log('Value changed!');
+        console.log(this.form.value.region);
       });
+  }
+
+  onOptionClicked(event) {
+    console.log('On Option Clicked!');
+    const region: IWeatherRegion = {
+      region: event.target.textContent
+    };
+
+    this.searchRegion.emit(region);
   }
 
   onSubmit() {
@@ -31,7 +43,6 @@ export class PreviewSearchComponent implements OnInit {
     }
 
     console.log('Clicked!');
-
     const region: IWeatherRegion = this.form.value;
 
     this.searchRegion.emit(region);
