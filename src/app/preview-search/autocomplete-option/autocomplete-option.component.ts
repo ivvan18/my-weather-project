@@ -4,19 +4,20 @@ import {IWeatherRegion} from '../../models/i-weather-region';
 @Component({
   selector: 'app-autocomplete-option',
   templateUrl: './autocomplete-option.component.html',
-  styleUrls: ['./autocomplete-option.component.css']
+  styleUrls: ['./autocomplete-option.component.css',
+  '../../../../node_modules/flag-icon-css/css/flag-icon.css']
 })
 export class AutocompleteOptionComponent implements OnInit {
   @Input() option: IWeatherRegion;
   @Output() optionClicked = new EventEmitter<void>();
-
+  @Input() countryCode: string;
   constructor() { }
 
   ngOnInit() {
   }
 
   onOptionSearch(event) {
-    event.stopPropagation();
+    console.log(this.countryCode);
     this.optionClicked.emit();
   }
 }

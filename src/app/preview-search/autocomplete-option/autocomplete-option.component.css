@@ -10,19 +10,7 @@ a {
 
 a:hover {background-color: #f1f1f1}
 
-::-webkit-scrollbar {
-  width: 7px;
+.flag-position{
+  float: right;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: grey;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
