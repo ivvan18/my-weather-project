@@ -7,6 +7,12 @@ import { WeatherPreviewModule } from './weather-preview/weather-preview.module';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardModule} from './dashboard/dashboard.module';
 
+import { AngularFireModule } from 'angularfire2';
+// for AngularFireDatabase
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {firebaseConfig} from '../environments/firebase.config';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,8 +21,10 @@ import { DashboardModule} from './dashboard/dashboard.module';
     BrowserModule,
     WeatherPreviewModule,
     AppRoutingModule,
-    DashboardModule
-  ],
+    DashboardModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+],
   providers: [],
   bootstrap: [AppComponent]
 })

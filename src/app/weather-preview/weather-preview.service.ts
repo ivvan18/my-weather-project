@@ -8,13 +8,14 @@ import {Observable} from 'rxjs/Observable';
 import {DomSanitizer} from '@angular/platform-browser';
 import {tz} from 'moment-timezone';
 
+
 import timezone = require('tz-lookup');
 
 
 
 @Injectable()
 export class WeatherPreviewService {
-  weatherRegion: IWeatherRegion;
+  weatherRegion: IWeatherRegion = { region: 'Moscow' };
   weather: IWeatherPreview = {
     region: 'Bangladesh',
     temperature: 19,
@@ -30,9 +31,10 @@ export class WeatherPreviewService {
     console.log('getWeather: service');
     this.weatherRegion = request;
     this.weatherApiUrl = this.weatherApiUrl.substr(0, 50) +
-      city_ids[this.weatherRegion.region] + this.weatherApiUrl.substr(this.weatherApiUrl.search(/&units/));
+      request.id + this.weatherApiUrl.substr(this.weatherApiUrl.search(/&units/));
     return this.http.get(this.weatherApiUrl);
   }
+
 
   getWeather(request: IWeatherRegion) {
     this.sendRequest(request)
@@ -49,7 +51,6 @@ export class WeatherPreviewService {
         this.weather.image_path = this.sanitizer.bypassSecurityTrustResourceUrl(path);
       });
   }
-
 
   getImageOfWeather(description: string, id: number): string {
     const timesOfDay: string = description.substr(description.length - 1);

@@ -62,6 +62,7 @@
   display: block;
   font-size: 14px;
   cursor: pointer;
+  overflow:auto;/* to get scroll */
 }
 
 /* Change color of dropdown links on hover */
@@ -81,3 +82,33 @@
 }
 
 .search-input:focus {outline: 3px solid #ddd;}
+
+.loading {
+  background: url(../../assets/side_effects/download.svg) no-repeat right center;
+  background-position: 99% 50%;
+}
+
+.dropdown-content ul {
+  list-style-type: none;
+  max-height:120px;/* you can change as you need it */
+  overflow:auto;/* to get scroll */
+  margin: 0; /* To remove default bottom margin */
+  padding: 0; /* To remove default left padding */
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
