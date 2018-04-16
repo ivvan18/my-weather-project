@@ -54,19 +54,20 @@
   font-family: 'Raleway', sans-serif;
 }
 
+/*Own Component now*/
 /* Links inside the dropdown */
-.dropdown-content a {
-  color: #003B2B;
-  padding: 12px 10px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px;
-  cursor: pointer;
-  overflow:auto;/* to get scroll */
-}
+/*.dropdown-content a {*/
+  /*color: #003B2B;*/
+  /*padding: 12px 10px;*/
+  /*text-decoration: none;*/
+  /*display: block;*/
+  /*font-size: 14px;*/
+  /*cursor: pointer;*/
+  /*overflow:auto;!* to get scroll *!*/
+/*}*/
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+/*!* Change color of dropdown links on hover *!*/
+/*.dropdown-content a:hover {background-color: #f1f1f1}*/
 
 .search-input{
   font-size: 14px;
@@ -96,19 +97,20 @@
   padding: 0; /* To remove default left padding */
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-}
+/*Own Component now*/
+/*::-webkit-scrollbar {*/
+  /*width: 7px;*/
+/*}*/
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+/*!* Track *!*/
+/*::-webkit-scrollbar-track {*/
+  /*background: #f1f1f1;*/
+/*}*/
 
-::-webkit-scrollbar-thumb {
-  background: grey;
-}
+/*::-webkit-scrollbar-thumb {*/
+  /*background: grey;*/
+/*}*/
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+/*::-webkit-scrollbar-thumb:hover {*/
+  /*background: #555;*/
+/*}*/

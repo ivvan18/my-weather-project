@@ -5,6 +5,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {PreviewSearchService} from './preview-search.service';
 import { AngularFireModule } from 'angularfire2';
 import {firebaseConfig} from '../../environments/firebase.config';
+import { AutocomleteOptionComponent } from './autocomlete-option/autocomlete-option.component';
+import { AutocompleteOptionComponent } from './autocomplete-option/autocomplete-option.component';
 
 @NgModule({
   imports: [
@@ -12,7 +14,7 @@ import {firebaseConfig} from '../../environments/firebase.config';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  declarations: [PreviewSearchComponent],
+  declarations: [PreviewSearchComponent, AutocompleteOptionComponent],
   exports: [PreviewSearchComponent],
   providers: [PreviewSearchService]
 

@@ -1,0 +1,28 @@
+a {
+  color: #003B2B;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  cursor: pointer;
+  overflow:auto;/* to get scroll */
+}
+
+a:hover {background-color: #f1f1f1}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

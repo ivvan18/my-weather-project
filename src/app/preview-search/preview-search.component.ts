@@ -35,9 +35,6 @@ export class PreviewSearchComponent implements OnInit {
       // .filter((text: string) => text.length > 1)
       .debounceTime(500)
       .distinctUntilChanged()
-      // .do(() => this.updateCondition(true))
-      // .switchMap((query: string) => from(this.prevSearch.search(query)))
-      // .do(() => this.updateCondition(false))
       .subscribe(
         data => {
           this.autocompleteOptions = this.prevSearch.search(data);
