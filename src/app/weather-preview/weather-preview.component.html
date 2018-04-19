@@ -8,10 +8,12 @@
       Your browser doesn't support SVG
     </object>
   </div>
-  <ul class="description-list">
-    <li class = "item">{{weather.time}}</li>
-    <li class = "item">{{weather.temperature | degrees}}</li>
-    <li class = "item">{{weather.description}}</li>
-  </ul>
+  <div class = "cont">
+    <ul class="description-list">
+        <li id = "left" class = "item">{{weather.time}}</li>
+        <li id = "center" class = "item">{{weather.temperature | degrees}}</li>
+        <li id = "right" class = "item">{{weather.description}}</li>
+      </ul>
+  </div>
   <app-preview-search (searchRegion)="onSearchClick($event)"></app-preview-search>
 </div>
