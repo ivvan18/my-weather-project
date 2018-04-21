@@ -1,0 +1,12 @@
+<div class="input-group srch-btn-custom">
+  <input type="text" class="form-control" placeholder="Search for location">
+  <span class="input-group-btn">
+    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+  </span>
+</div><!-- /input-group -->
+<div class="list-class">
+  <a class = "autocomplete" *ngFor="let option of autocompleteOptions">
+    {{option.region}}
+    <span class="flag-position flag-icon flag-icon-{{option.region.substr(option.region.search(',') + 2).toLowerCase()}}"></span>
+  </a>
+</div>
