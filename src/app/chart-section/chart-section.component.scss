@@ -1,0 +1,62 @@
+::ng-deep .ngx-charts {
+  text{
+    fill: white;
+  }
+
+
+  .timeline {
+    .brush-background {
+      fill: rgba(255,255,255,0.05);
+    }
+
+    .brush {
+      .selection {
+        fill: rgba(255, 255, 255, 0.1);
+        stroke: #aaa;
+      }
+    }
+  }
+
+  .gridline-path {
+    opacity: 0.1;
+  }
+}
+
+.line-graph {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+}
+
+::ng-deep .chart-legend {
+  .legend-labels {
+    background: rgba(255,255,255,0.05) !important;
+  }
+
+  .legend-title-text {
+    color: #EBEBEB;
+  }
+  .legend-item {
+    &:hover {
+      color: #A0AABE;
+    }
+  }
+
+  .legend-label {
+    &:hover {
+      color: #fff !important;
+    }
+
+    .active {
+      .legend-label-text {
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+.container-responsive {
+  width: 100%;
+  height: 100%;
+}
+

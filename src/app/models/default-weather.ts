@@ -51,3 +51,103 @@ export const imgMap = {
   'heavy drizzle_n' : '../../assets/weather_icons/ovc_+ra.svg',
   'blizzard' : '../../assets/weather_icons/bl.svg'
 };
+
+export const single = [
+  {
+    'name': 'Germany',
+    'value': 25
+  },
+  {
+    'name': 'USA',
+    'value': 23
+  },
+  {
+    'name': 'France',
+    'value': 24
+  }
+];
+
+export const results = [
+  {
+    'name': 'USA',
+    'series': [
+      {
+        'name': new Date(2018, 4, 20, 20, 2),
+        'value': 14
+      },
+      {
+        'name':  new Date(2018, 4, 20, 20, 10),
+        'value': 26
+      },
+      {
+        'name': new Date(2018, 4, 20, 20, 25),
+        'value': 22
+      },
+      {
+        'name': new Date(2018, 4, 20, 20, 50),
+        'value': 22.3
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 7),
+        'value': 30.1
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 22),
+        'value': 21.4
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 40),
+        'value': 12
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 55),
+        'value': 19
+      },
+      {
+        'name': new Date(2018, 4, 20, 22, 0),
+        'value': 20
+      }
+    ]
+  },
+  {
+    'name': 'Russia',
+    'series': [
+      {
+        'name': new Date(2018, 4, 20, 20, 2),
+        'value': 20
+      },
+      {
+        'name':  new Date(2018, 4, 20, 20, 10),
+        'value': 29
+      },
+      {
+        'name': new Date(2018, 4, 20, 20, 25),
+        'value': 23.5
+      },
+      {
+        'name': new Date(2018, 4, 20, 20, 50),
+        'value': 25
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 7),
+        'value': 20
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 22),
+        'value': 19.4
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 40),
+        'value': 24
+      },
+      {
+        'name': new Date(2018, 4, 20, 21, 55),
+        'value': 20
+      },
+      {
+        'name': new Date(2018, 4, 20, 22, 0),
+        'value': 24.7
+      }
+    ]
+  }
+];

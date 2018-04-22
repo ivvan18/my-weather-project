@@ -220,6 +220,7 @@ fieldset[disabled] .btn {
 }
 .panel-body {
   padding: 15px;
+  height: 500px;
 }
 .panel-heading {
   padding: 10px 15px;
@@ -230,7 +231,7 @@ fieldset[disabled] .btn {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 16px;
-  color: inherit;
+  color: #0a3549;
 }
 
 .panel-footer {

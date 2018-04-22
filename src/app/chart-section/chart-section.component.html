@@ -1,0 +1,17 @@
+<div class="container-responsive">
+  <ngx-charts-line-chart class="line-graph"
+    [scheme]="colorScheme"
+    [results]="results"
+    [xAxis]=true
+    [yAxis]=true
+    [legend]=true
+    [showXAxisLabel]=true
+    [showYAxisLabel]=true
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [timeline]=true
+    [autoScale]=true
+    (select)="onSelect($event)">
+  </ngx-charts-line-chart>
+</div>
+
