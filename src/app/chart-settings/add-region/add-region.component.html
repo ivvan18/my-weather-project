@@ -5,7 +5,8 @@
   </span>
 </div><!-- /input-group -->
 <div class="list-class">
-  <a class = "autocomplete" *ngFor="let option of autocompleteOptions">
+  <a class = "autocomplete" *ngFor="let option of autocompleteOptions"
+    (click)="onAddRegionOnChart(option)">
     {{option.region}}
     <span class="flag-position flag-icon flag-icon-{{option.region.substr(option.region.search(',') + 2).toLowerCase()}}"></span>
   </a>

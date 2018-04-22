@@ -1,4 +1,4 @@
-<div class="container-responsive">
+<div *ngIf = "currentRegionsOnChart > 0" class="container-responsive">
   <ngx-charts-line-chart class="line-graph"
     [scheme]="colorScheme"
     [results]="results"

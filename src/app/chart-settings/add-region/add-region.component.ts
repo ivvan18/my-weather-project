@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PreviewSearchService} from '../../preview-search/preview-search.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IWeatherRegion} from '../../models/i-weather-region';
@@ -19,8 +19,11 @@ export class AddRegionComponent implements OnInit {
               private el: ElementRef) { }
 
   searchForm: FormGroup;
-  @Output() searchRegion = new EventEmitter<IWeatherRegion>();
+  @Output() addRegion = new EventEmitter();
+  @Output() toggleAdd = new EventEmitter();
+
   autocompleteOptions: IWeatherRegion[] = [];
+
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
       region : ['', Validators.required]
@@ -41,4 +44,9 @@ export class AddRegionComponent implements OnInit {
       );
   }
 
+  onAddRegionOnChart(region: IWeatherRegion) {
+    console.log(region);
+    this.addRegion.emit(region);
+    this.toggleAdd.emit();
+  }
 }

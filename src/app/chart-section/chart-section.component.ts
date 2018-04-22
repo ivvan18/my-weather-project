@@ -1,5 +1,6 @@
 import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { results } from '../models/default-weather';
+import {IChartData} from '../models/i-chart-data';
 
 @Component({
   selector: 'app-chart-section',
@@ -7,8 +8,8 @@ import { results } from '../models/default-weather';
   styleUrls: ['./chart-section.component.scss']
 })
 export class ChartSectionComponent implements OnInit {
-  results: any[];
-
+  @Input() results: IChartData[];
+  @Input() currentRegionsOnChart: number;
   // options
   xAxisLabel = 'Local time';
   yAxisLabel = 'Temperature, \u2103';
@@ -18,13 +19,18 @@ export class ChartSectionComponent implements OnInit {
   };
 
   onSelect(event) {
-    console.log(event);
+    console.log(this.results);
+    this.updateData();
   }
 
+  updateData() {
+    this.results = [...this.results];
+    console.log(this.results);
+    console.log('updated!');
+  }
   constructor() {}
 
   ngOnInit() {
-    this.results = results;
   }
 
 }
