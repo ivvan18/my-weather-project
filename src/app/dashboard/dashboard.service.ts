@@ -18,14 +18,16 @@ export class DashboardService {
     this.data = [...this.data, this.http.getForecast(region, this.daysToDisplay)];
   }
 
-  deleteChartData(name: string) {
-    for (let i = 0; i < this.data.length; ++i) {
-      if (this.data[i].name === name) {
-        this.currentRegionsOnChart--;
-        this.data.splice(i, 1);
-        return;
-      }
-    }
+  deleteChartData(index: number) {
+    // for (let i = 0; i < this.data.length; ++i) {
+    //   if (this.data[i].name === name) {
+    //     this.currentRegionsOnChart--;
+    //     this.data.splice(i, 1);
+    //     return;
+    //   }
+    // }
+    this.currentRegionsOnChart--;
+    this.data.splice(index, 1);
   }
 
   deleteAllChartData() {

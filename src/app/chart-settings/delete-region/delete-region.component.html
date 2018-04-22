@@ -1,0 +1,10 @@
+<div *ngFor = "let region of regionsToDelete; let i = index">
+  <button (mouseover)="hover[i]=true"
+          (mouseleave)="hover[i]=false"
+          class="btn btn-danger btn-custom"
+          [style.background-color] = "!hover[i] ? getColor(i)[0] : getColor(i)[1]"
+          [style.border-color] = "!hover [i]? getColor(i)[0] : getColor(i)[1]"
+          (click) = "onDeleteRegionOnChart(i)">
+    Delete {{region.name}}
+  </button>
+</div>

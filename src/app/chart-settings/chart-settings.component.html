@@ -13,7 +13,7 @@
     <option value='5'>Five</option>
   </select>
   <button class="btn btn-success btn-custom"
-          (click)="toggleAdd($event)"
+          (click)="toggleAdd()"
           [disabled]="currentRegionsOnChart === 4">
     Add region
   </button>
@@ -23,8 +23,15 @@
       (toggleAdd)="toggleAdd()">
     </app-add-region>
   </div>
-  <button class="btn btn-danger btn-custom">
+  <button class="btn btn-danger btn-custom"
+          (click)="toggleDelete()">
     Clear chart
   </button>
+  <div *ngIf="isDeleteRegionOpen">
+    <app-delete-region
+      [regionsToDelete]="optionsToDelete"
+      (deleteRegion)="deleteRegion.emit($event)">
+    </app-delete-region>
+  </div>
 </div>
 

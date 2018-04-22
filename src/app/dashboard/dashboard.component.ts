@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import {DashboardService} from './dashboard.service';
 import {IChartData} from '../models/i-chart-data';
 import {IWeatherRegion} from '../models/i-weather-region';
@@ -36,8 +36,8 @@ export class DashboardComponent implements OnInit {
     }, 500);
   }
 
-  deleteChartData(name: string) {
-    this.dashboardService.deleteChartData(name);
+  deleteChartData(index: number) {
+    this.dashboardService.deleteChartData(index);
     this.currentRegionsOnChart = this.dashboardService.currentRegionsOnChart;
     this.data = this.dashboardService.data;
   }
