@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
   deleteChartData(index: number) {
     this.dashboardService.deleteChartData(index);
     this.currentRegionsOnChart = this.dashboardService.currentRegionsOnChart;
-    this.data = this.dashboardService.data;
+    this.data = [...this.dashboardService.data];
   }
 
   deleteAllChartData() {

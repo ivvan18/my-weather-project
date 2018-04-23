@@ -26,6 +26,7 @@ export class DeleteRegionComponent implements OnInit {
   }
 
   onDeleteRegionOnChart(index: number) {
+    console.log(index);
     this.deleteRegion.emit(index);
   }
 

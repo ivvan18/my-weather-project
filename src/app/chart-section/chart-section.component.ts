@@ -25,8 +25,6 @@ export class ChartSectionComponent implements OnInit {
 
   updateData() {
     this.results = [...this.results];
-    console.log(this.results);
-    console.log('updated!');
   }
   constructor() {}
 
