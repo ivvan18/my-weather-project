@@ -37,8 +37,16 @@ export class HttpServiceService {
       .subscribe(data => {
         chartData.name = `${data['city']['name']}, ${data['city']['country']}`;
         for (let i = 0; i < data['cnt']; i++) {
+          const stringData = data['list'][i]['dt_txt'];
+          const year = stringData.substr(0, 4);
+          const month =  stringData.substr(5, 2);
+          const day = stringData.substr(8, 2);
+          const hour = stringData.substr(11, 2);
+          const minutes = stringData.substr(14, 2);
+          const seconds = stringData.substr(17, 2);
+          const currentData = new Date(year, month, day, hour, minutes, seconds);
           chartData.series.push({
-            name: data['list'][i]['dt_txt'],
+            name: currentData,
             value: data['list'][i]['main']['temp']
           });
         }
