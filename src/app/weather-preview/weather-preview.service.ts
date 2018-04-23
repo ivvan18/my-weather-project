@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {city_ids} from '../models/default-weather';
 import {HttpClient} from '@angular/common/http';
 import {IWeatherRegion} from '../models/i-weather-region';
 import {imgMap} from '../models/default-weather';

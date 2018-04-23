@@ -3,6 +3,8 @@ import {IWeatherRegion} from '../models/i-weather-region';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import {IChartData} from '../models/i-chart-data';
+import timezone = require('tz-lookup');
+import moment = require ('moment');
 
 @Injectable()
 export class HttpServiceService {
@@ -10,19 +12,7 @@ export class HttpServiceService {
     'id=&units=metric&APPID=54381dfe25730288c7afd5e7a8bb0489';
 
   getIntervalsForForecasts(days: number): number {
-    if (days === 1) {
-      return 8;
-    }
-    if (days === 2) {
-      return 16;
-    }
-    if (days === 3) {
-      return 24;
-    }
-    if (days === 4) {
-      return 32;
-    }
-    return 40;
+    return days * 8;
   }
 
   sendRequest(request: IWeatherRegion, days: number): Observable<Object> {
@@ -38,15 +28,19 @@ export class HttpServiceService {
         chartData.name = `${data['city']['name']}, ${data['city']['country']}`;
         for (let i = 0; i < data['cnt']; i++) {
           const stringData = data['list'][i]['dt_txt'];
-          const year = stringData.substr(0, 4);
-          const month =  stringData.substr(5, 2);
-          const day = stringData.substr(8, 2);
-          const hour = stringData.substr(11, 2);
-          const minutes = stringData.substr(14, 2);
-          const seconds = stringData.substr(17, 2);
-          const currentData = new Date(year, month, day, hour, minutes, seconds);
+          // console.log(tz(stringData, timezone(data['city']['coord']['lat'], data['city']['coord']['lon'])).format());
+          // const year = stringData.substr(0, 4);
+          // const month =  stringData.substr(5, 2);
+          // const day = stringData.substr(8, 2);
+          // const hour = stringData.substr(11, 2);
+          // const minutes = stringData.substr(14, 2);
+          // const seconds = stringData.substr(17, 2);
+          // const currentData = new Date(year, month, day, hour, minutes, seconds);
+          const utcDate = moment.utc(stringData);
+          const localDate = utcDate.clone().tz(timezone(data['city']['coord']['lat'], data['city']['coord']['lon']));
+          console.log(localDate.format('YYYY-MM-DD HH:mm:ss'));
           chartData.series.push({
-            name: currentData,
+            name: new Date(localDate.format('YYYY-MM-DD HH:mm:ss')),
             value: data['list'][i]['main']['temp']
           });
         }
