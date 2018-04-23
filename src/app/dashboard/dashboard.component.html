@@ -26,6 +26,7 @@
           [currentRegionsOnChart]="currentRegionsOnChart"
           (addRegion)="appendChartData($event)"
           (deleteRegion)="deleteChartData($event)"
+          (deleteAllRegions)="deleteAllChartData()"
           [optionsToDelete] = "data">
         </app-chart-settings>
       </div>

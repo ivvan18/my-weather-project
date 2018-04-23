@@ -24,13 +24,16 @@
     </app-add-region>
   </div>
   <button class="btn btn-danger btn-custom"
-          (click)="toggleDelete()">
+          (click)="toggleDelete()"
+          [disabled]="currentRegionsOnChart === 0">
     Clear chart
   </button>
   <div *ngIf="isDeleteRegionOpen">
     <app-delete-region
       [regionsToDelete]="optionsToDelete"
-      (deleteRegion)="deleteRegion.emit($event)">
+      (deleteRegion)="deleteRegion.emit($event)"
+      (deleteAllRegions)="deleteAllRegions.emit()"
+      (toggleDelete)="toggleDelete()">
     </app-delete-region>
   </div>
 </div>

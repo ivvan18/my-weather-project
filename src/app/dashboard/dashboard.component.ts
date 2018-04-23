@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
   deleteAllChartData() {
     this.dashboardService.deleteAllChartData();
     this.currentRegionsOnChart = this.dashboardService.currentRegionsOnChart;
-    this.data = this.dashboardService.data;
+    this.data = [...this.dashboardService.data];
   }
 
   ngOnInit() {

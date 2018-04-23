@@ -45,7 +45,6 @@ export class AddRegionComponent implements OnInit {
   }
 
   onAddRegionOnChart(region: IWeatherRegion) {
-    console.log(region);
     this.addRegion.emit(region);
     this.toggleAdd.emit();
   }

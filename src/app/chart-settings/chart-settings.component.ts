@@ -14,6 +14,7 @@ export class ChartSettingsComponent implements OnInit {
   @Output() selectChange = new EventEmitter();
   @Output() addRegion = new EventEmitter();
   @Output() deleteRegion = new EventEmitter();
+  @Output() deleteAllRegions = new EventEmitter();
 
   @Input() currentRegionsOnChart;
   @Input() optionsToDelete: IChartData[];

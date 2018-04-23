@@ -9,6 +9,8 @@ import {IChartData} from '../../models/i-chart-data';
 export class DeleteRegionComponent implements OnInit {
   @Input() regionsToDelete: IChartData[];
   @Output() deleteRegion = new EventEmitter();
+  @Output() toggleDelete = new EventEmitter();
+  @Output() deleteAllRegions = new EventEmitter();
 
   hover = [false, false, false, false];
 
@@ -26,8 +28,13 @@ export class DeleteRegionComponent implements OnInit {
   }
 
   onDeleteRegionOnChart(index: number) {
-    console.log(index);
     this.deleteRegion.emit(index);
+    this.toggleDelete.emit();
+  }
+
+  onDeleteAllRegions() {
+    this.deleteAllRegions.emit();
+    this.toggleDelete.emit();
   }
 
   constructor() { }

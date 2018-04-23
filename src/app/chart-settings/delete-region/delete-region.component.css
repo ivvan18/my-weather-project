@@ -5,3 +5,13 @@
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
+
+.btn-delete-all {
+  background-color: #cc0000 !important;
+  border-color: #cc0000 !important;
+}
+
+.btn-delete-all:hover {
+  background-color: #610000 !important;
+  border-color: #610000 !important;
+}
