@@ -19,22 +19,47 @@
   padding: 0 2%;
 }
 
-.nav-item{
-  display: inline-block;
-  color: white;
-  text-decoration: none;
+/*.nav-item{*/
+  /*display: inline-block;*/
+  /*color: white;*/
+  /*text-decoration: none;*/
+/*}*/
+
+/*.nav-item::after{*/
+  /*content: '';*/
+  /*display: block;*/
+  /*width: 0;*/
+  /*height: 2px;*/
+  /*background: dodgerblue;*/
+  /*transition: width .3s;*/
+/*}*/
+
+/*.nav-item:hover::after{*/
+  /*width: 100%;*/
+  /*transition: width .3s;*/
+/*}*/
+
+.brand-name {
+  font-family: 'Shrikhand', cursive;
+  font-size: 35px;
+  margin-left: 50% !important;
+  color: white !important;
 }
 
-.nav-item::after{
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: dodgerblue;
-  transition: width .3s;
+.brand-name:hover {
+  color: #a8a8a8 !important;
 }
 
-.nav-item:hover::after{
-  width: 100%;
-  transition: width .3s;
+.navbar-custom {
+  background-color: #0d4b68;
+  border-color: #0d4b68;
+}
+
+.navbar-item {
+  font-size: 18px !important;
+  color: white !important;
+}
+
+.navbar-item:hover {
+  color: #a8a8a8 !important;
 }

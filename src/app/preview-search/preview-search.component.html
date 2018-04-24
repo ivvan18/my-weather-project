@@ -1,22 +1,27 @@
 <div class="search-container">
-  <p class = "search-paragraph">Find a Forecast</p>
-  <div class="dropdown-content">
-    <div class = "search-custom">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for location">
-        <span class="input-group-btn">
-							<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-						</span>
-      </div><!-- /input-group -->
+    <p class = "search-paragraph">Find a Forecast</p>
+    <div class="dropdown-content">
+      <div class = "search-custom">
+        <form [formGroup]="form">
+          <div class="input-group">
+            <input type="text"
+                   formControlName="region"
+                   class="form-control"
+                   placeholder="Search for location">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+            </span>
+          </div><!-- /input-group -->
+        </form>
+      </div>
+      <ul>
+        <li *ngFor = "let option of autocompleteOptions">
+          <app-autocomplete-option
+            [option]="option"
+            [countryCode]="'flag-icon-' + option.region.substr(option.region.search(',') + 2).toLowerCase()"
+            (optionClicked) = "onOptionClicked($event)">
+          </app-autocomplete-option>
+        </li>
+      </ul>
     </div>
-    <ul>
-      <li *ngFor = "let option of autocompleteOptions">
-        <app-autocomplete-option
-          [option]="option"
-          [countryCode]="'flag-icon-' + option.region.substr(option.region.search(',') + 2).toLowerCase()"
-          (optionClicked) = "onOptionClicked($event)">
-        </app-autocomplete-option>
-      </li>
-    </ul>
-  </div>
 </div>
