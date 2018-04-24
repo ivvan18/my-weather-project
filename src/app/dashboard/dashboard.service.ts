@@ -14,18 +14,18 @@ export class DashboardService {
   }
 
   appendChartData(region: IWeatherRegion) {
+    // checking for duplicate appending
+    for (let i = 0; i < this.data.length; i++) {
+      if (region.region === this.data[i].name) {
+        return;
+      }
+    }
+
     this.currentRegionsOnChart++;
     this.data = [...this.data, this.http.getForecast(region, this.daysToDisplay)];
   }
 
   deleteChartData(index: number) {
-    // for (let i = 0; i < this.data.length; ++i) {
-    //   if (this.data[i].name === name) {
-    //     this.currentRegionsOnChart--;
-    //     this.data.splice(i, 1);
-    //     return;
-    //   }
-    // }
     this.currentRegionsOnChart--;
     this.data.splice(index, 1);
   }

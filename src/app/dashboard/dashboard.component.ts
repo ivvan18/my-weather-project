@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import {DashboardService} from './dashboard.service';
 import {IChartData} from '../models/i-chart-data';
 import {IWeatherRegion} from '../models/i-weather-region';
-import {HttpServiceService} from './http-service.service';
 import {ChartSectionComponent} from '../chart-section/chart-section.component';
 
 @Component({
@@ -12,8 +11,7 @@ import {ChartSectionComponent} from '../chart-section/chart-section.component';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private dashboardService: DashboardService,
-              private http: HttpServiceService) { }
+  constructor(private dashboardService: DashboardService) { }
 
   currentRegionsOnChart = 0;
   daysToDisplay = 2;
