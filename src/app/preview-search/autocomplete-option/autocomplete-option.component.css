@@ -1,6 +1,7 @@
-a {
+.a-style {
   color: #003B2B;
   padding: 12px 10px;
+  margin-left: 3px;
   text-decoration: none;
   display: block;
   font-size: 14px;
@@ -8,7 +9,11 @@ a {
   overflow:auto;/* to get scroll */
 }
 
-a:hover {background-color: #f1f1f1}
+.a-style:hover {
+  text-decoration: none;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
 
 .flag-position{
   float: right;

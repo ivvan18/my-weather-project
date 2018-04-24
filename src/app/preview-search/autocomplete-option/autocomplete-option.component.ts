@@ -9,7 +9,7 @@ import {IWeatherRegion} from '../../models/i-weather-region';
 })
 export class AutocompleteOptionComponent implements OnInit {
   @Input() option: IWeatherRegion;
-  @Output() optionClicked = new EventEmitter<void>();
+  @Output() optionClicked = new EventEmitter();
   @Input() countryCode: string;
   constructor() { }
 
@@ -18,6 +18,6 @@ export class AutocompleteOptionComponent implements OnInit {
 
   onOptionSearch(event) {
     console.log(this.countryCode);
-    this.optionClicked.emit();
+    this.optionClicked.emit(this.option);
   }
 }

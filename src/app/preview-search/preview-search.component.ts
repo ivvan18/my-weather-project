@@ -17,8 +17,6 @@ import 'rxjs/add/operator/do';
 export class PreviewSearchComponent implements OnInit {
   @Output() searchRegion = new EventEmitter<IWeatherRegion>();
   autocompleteOptions: IWeatherRegion[] = [];
-  isLoading = false;
-
 
   form: FormGroup;
   constructor(private formBuilder: FormBuilder,
@@ -41,16 +39,7 @@ export class PreviewSearchComponent implements OnInit {
           },
         (err: any) => {
           console.log(err);
-          this.updateCondition(false);
-          },
-        () => {
-          this.updateCondition(false);
-          }
-        );
-  }
-
-  updateCondition(condition: boolean) {
-    this.isLoading = condition;
+          });
   }
 
   onOptionClicked(option) {
