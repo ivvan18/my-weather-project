@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import {IWeatherRegion} from '../models/i-weather-region';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {IChartData} from '../models/i-chart-data';
-import timezone = require('tz-lookup');
-import moment = require ('moment');
 
 @Injectable()
 export class HttpServiceService {
@@ -21,32 +18,8 @@ export class HttpServiceService {
     return this.http.get(this.weatherForeCastApiUrl + `&cnt=${this.getIntervalsForForecasts(days)}`);
   }
 
-  getForecast(region: IWeatherRegion, days: number): IChartData {
-    const chartData: IChartData = {name: '', series: []};
-    this.sendRequest(region, days)
-      .subscribe(data => {
-        chartData.name = `${data['city']['name']}, ${data['city']['country']}`;
-        for (let i = 0; i < data['cnt']; i++) {
-          const stringData = data['list'][i]['dt_txt'];
-          // console.log(tz(stringData, timezone(data['city']['coord']['lat'], data['city']['coord']['lon'])).format());
-          // const year = stringData.substr(0, 4);
-          // const month =  stringData.substr(5, 2);
-          // const day = stringData.substr(8, 2);
-          // const hour = stringData.substr(11, 2);
-          // const minutes = stringData.substr(14, 2);
-          // const seconds = stringData.substr(17, 2);
-          // const currentData = new Date(year, month, day, hour, minutes, seconds);
-          const utcDate = moment.utc(stringData);
-          const localDate = utcDate.clone().tz(timezone(data['city']['coord']['lat'], data['city']['coord']['lon']));
-          console.log(localDate.format('YYYY-MM-DD HH:mm:ss'));
-          chartData.series.push({
-            name: new Date(localDate.format('YYYY-MM-DD HH:mm:ss')),
-            value: data['list'][i]['main']['temp']
-          });
-        }
-      });
-    console.log(chartData);
-    return chartData;
+  getForecast(region: IWeatherRegion, days: number): Observable<Object> {
+    return this.sendRequest(region, days);
   }
 
   constructor(private http: HttpClient) { }

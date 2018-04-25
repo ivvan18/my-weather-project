@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {IChartData} from '../models/i-chart-data';
 import {HttpServiceService} from './http-service.service';
 import {IWeatherRegion} from '../models/i-weather-region';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DashboardService {
@@ -13,16 +14,9 @@ export class DashboardService {
     this.daysToDisplay = value;
   }
 
-  appendChartData(region: IWeatherRegion) {
-    // checking for duplicate appending
-    for (let i = 0; i < this.data.length; i++) {
-      if (region.region === this.data[i].name) {
-        return;
-      }
-    }
-
+  appendChartData(region: IWeatherRegion): Observable<Object> {
     this.currentRegionsOnChart++;
-    this.data = [...this.data, this.http.getForecast(region, this.daysToDisplay)];
+    return this.http.getForecast(region, this.daysToDisplay);
   }
 
   deleteChartData(index: number) {

@@ -18,7 +18,7 @@ export class ChartSectionComponent implements OnInit {
   };
 
   onSelect(event) {
-    console.log(this.results);
+    console.log(event);
     this.updateData();
   }
 
