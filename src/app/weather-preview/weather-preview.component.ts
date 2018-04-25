@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {IWeatherPreview} from '../models/i-weather-preview';
 import {WeatherPreviewService} from './weather-preview.service';
 import {IWeatherRegion} from '../models/i-weather-region';
@@ -11,7 +11,8 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class WeatherPreviewComponent implements OnInit {
   weather: IWeatherPreview = {
-    region: 'Bangladesh',
+    region: 'Moscow',
+    country: 'RU',
     temperature: 19,
     time: '20:23',
     description: 'clear sky',
@@ -29,5 +30,4 @@ export class WeatherPreviewComponent implements OnInit {
     this.weatherPreviewService.getWeather(request);
     this.weather = this.weatherPreviewService.weather;
   }
-
 }

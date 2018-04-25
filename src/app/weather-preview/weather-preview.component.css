@@ -3,18 +3,6 @@
   margin-right: 15%;
 }
 
-.header{
-  text-align: center;
-  font-size: 50px;
-  font-weight: 600;
-  font-family: 'Raleway', sans-serif;
-  color: #FFFAFF;
-}
-
-.container-header{
-  margin: 25px 50px;
-}
-
 .container-picture{
   margin: 25px 50px;
   height: 200px;
@@ -54,3 +42,4 @@
   display: block;
   overflow: auto;
 }
+

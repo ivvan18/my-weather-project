@@ -6,4 +6,7 @@ export interface IWeatherPreview {
   time: string;
   region: string;
   image_path: SafeResourceUrl;
+  lon ?: number;
+  lat ?: number;
+  country ?: string;
 }

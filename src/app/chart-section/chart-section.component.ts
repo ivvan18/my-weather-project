@@ -1,5 +1,4 @@
 import { Component, OnInit, NgModule, Input } from '@angular/core';
-import { results } from '../models/default-weather';
 import {IChartData} from '../models/i-chart-data';
 
 @Component({

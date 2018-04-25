@@ -5,6 +5,7 @@ import {WeatherPreviewService} from './weather-preview.service';
 import {DegreesModule} from '../degrees/degrees.module';
 import {PreviewSearchModule} from '../preview-search/preview-search.module';
 import {HttpClientModule} from '@angular/common/http';
+import {MapModalModule} from '../map-modal/map-modal.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
     DegreesModule,
     PreviewSearchModule,
     HttpClientModule,
+    MapModalModule
   ],
   declarations: [WeatherPreviewComponent],
   exports: [WeatherPreviewComponent],

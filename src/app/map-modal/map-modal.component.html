@@ -1,0 +1,21 @@
+<div class="container-header">
+  <div class="header">
+    Weather Forecast for
+    <a class="location-link"
+       (click)="openModal(template)">{{region + ', ' + country}}</a></div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left map-header">Location</h4>
+    <button type="button" class="close pull-right"
+            aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  </div>
+</ng-template>

@@ -1,9 +1,11 @@
 <div class = "main-section">
-  <div class="container-header">
-    <div class="header">Weather Forecast for {{weather.region}}</div>
-  </div>
+  <app-map-modal
+    [lat]="weather.lat"
+    [lng]="weather.lon"
+    [country]="weather.country"
+    [region]="weather.region">
+  </app-map-modal>
   <div class="container-picture">
-    <!--<img class = "svg-icon path" src="https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg">-->
     <object id = "svgObject" type="image/svg+xml" [data] = "weather.image_path">
       Your browser doesn't support SVG
     </object>

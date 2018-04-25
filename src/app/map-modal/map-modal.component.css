@@ -1,0 +1,25 @@
+agm-map {
+  height: 300px;
+}
+
+.header{
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  color: #FFFAFF;
+}
+
+.container-header{
+  margin: 25px 50px;
+}
+
+.location-link {
+  color: #B0CF00 !important;
+  cursor: pointer;
+}
+
+.map-header {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}

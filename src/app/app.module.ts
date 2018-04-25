@@ -11,6 +11,8 @@ import { AngularFireModule } from 'angularfire2';
 // for AngularFireDatabase
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {firebaseConfig} from '../environments/firebase.config';
+import { MapModalComponent } from './map-modal/map-modal.component';
+import {MapModalModule} from './map-modal/map-modal.module';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import {firebaseConfig} from '../environments/firebase.config';
     DashboardModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    MapModalModule
 ],
   providers: [],
   bootstrap: [AppComponent]
