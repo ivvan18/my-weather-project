@@ -12,6 +12,25 @@
     [timeline]=true
     [autoScale]=true
     (select)="onSelect($event)">
+    <ng-template #tooltipTemplate let-model="model">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <object class = "preview-weather" id = "svgObject" type="image/svg+xml" [data] = "previewResults[model.series][model.value][1]">
+              Your browser doesn't support SVG
+            </object>
+          </div>
+          <div class="col-xs-6">
+            <div class="tooltip-area" >
+              <ul class="preview-list">
+                <li style="margin-left: 0px;">{{previewResults[model.series][model.value][2]}}</li>
+                <li style="margin-left: 0px;">{{previewResults[model.series][model.value][0]}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </ngx-charts-line-chart>
 </div>
 
