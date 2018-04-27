@@ -24,6 +24,10 @@ export class WeatherPreviewService {
   private weatherApiUrl: string = 'http://api.openweathermap.org/data/2.5/weather?' +
     'id=&units=metric&APPID=54381dfe25730288c7afd5e7a8bb0489';
 
+  private defaultWeatherForGeoApiUrl = 'http://api.openweathermap.org/data/2.5/weather?' +
+    'id=524901&units=metric&APPID=54381dfe25730288c7afd5e7a8bb0489';
+
+
   sendRequest(request: IWeatherRegion): Observable<Object> {
     console.log('getWeather: service');
     this.weatherRegion = request;
@@ -32,6 +36,9 @@ export class WeatherPreviewService {
     return this.http.get(this.weatherApiUrl);
   }
 
+  getDefaultWeather(): Observable<Object> {
+    return this.http.get(this.defaultWeatherForGeoApiUrl);
+  }
 
   getWeather(request: IWeatherRegion): Observable<Object> {
     return this.sendRequest(request);
