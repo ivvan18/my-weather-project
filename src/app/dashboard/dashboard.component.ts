@@ -27,25 +27,6 @@ export class DashboardComponent implements OnInit {
   previewResults: Object = {};
   @ViewChild(ChartSectionComponent) child: ChartSectionComponent;
 
-  clearPreviewResults() {
-    for (const prop in this.previewResults) {
-      if (this.previewResults.hasOwnProperty(prop)) {
-        delete this.previewResults[prop];
-      }
-    }
-  }
-  updatePreviewResults() {
-    this.clearPreviewResults();
-    for (let i = 0; i < this.data.length; ++i) {
-      this.previewResults[this.data[i].name] = {};
-      for (let j = 0; j < this.data[i].series.length; ++j) {
-        const currentEntry: IChartEntry = this.data[i].series[j];
-        const date: string = moment(currentEntry.name).format('DD/MM/YYYY HH:mm');
-        this.previewResults[this.data[i].name][currentEntry.value] = [currentEntry.description, currentEntry.image_path, date];
-      }
-    }
-  }
-
   setDaysToDisplay(value: number) {
     this.dashboardService.setDaysToDisplay(value);
     this.daysToDisplay = this.dashboardService.daysToDisplay;
@@ -83,12 +64,14 @@ export class DashboardComponent implements OnInit {
           });
         }
         this.data = [...this.data, chartData];
+        console.log('appendData Dashboard component:');
+        console.log(this.data);
         this.child.updateData();
-        this.updatePreviewResults();
-        console.log(this.previewResults);
         this.currentRegionsOnChart = this.dashboardService.currentRegionsOnChart;
         this.dashboardService.data = this.data;
-    });
+        this.dashboardService.updatePreviewResults();
+        this.previewResults = this.dashboardService.previewResults;
+      });
   }
 
   deleteChartData(index: number) {
@@ -104,6 +87,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentRegionsOnChart = this.dashboardService.currentRegionsOnChart;
+    this.data = this.dashboardService.data;
+    this.previewResults = this.dashboardService.previewResults;
+    this.daysToDisplay = this.dashboardService.daysToDisplay;
   }
 
 }

@@ -16,10 +16,13 @@ export class ChartSettingsComponent implements OnInit {
   @Output() deleteRegion = new EventEmitter();
   @Output() deleteAllRegions = new EventEmitter();
 
+  @Input() daysToDisplay: number;
   @Input() currentRegionsOnChart;
   @Input() optionsToDelete: IChartData[];
 
   ngOnInit() {
+    console.log('On chart Settings:');
+    console.log(this.daysToDisplay);
   }
 
   toggleAdd() {

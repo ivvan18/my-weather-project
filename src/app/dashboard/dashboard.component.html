@@ -25,6 +25,7 @@
         <app-chart-settings
           (selectChange)="setDaysToDisplay($event)"
           [currentRegionsOnChart]="currentRegionsOnChart"
+          [daysToDisplay]="daysToDisplay"
           (addRegion)="appendChartData($event)"
           (deleteRegion)="deleteChartData($event)"
           (deleteAllRegions)="deleteAllChartData()"

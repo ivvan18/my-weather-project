@@ -6,11 +6,11 @@
   <select class="custom-select btn-custom"
           (change)="onSelectChanged($event)"
           [disabled]="currentRegionsOnChart > 0">
-    <option value='1'>One</option>
-    <option value='2' selected>Two</option>
-    <option value='3'>Three</option>
-    <option value='4'>Four</option>
-    <option value='5'>Five</option>
+    <option value='1' [selected] = "this.daysToDisplay.toString() === '1'">One</option>
+    <option value='2' [selected] = "this.daysToDisplay.toString() === '2'">Two</option>
+    <option value='3' [selected] = "this.daysToDisplay.toString() === '3'">Three</option>
+    <option value='4' [selected] = "this.daysToDisplay.toString() === '4'">Four</option>
+    <option value='5' [selected] = "this.daysToDisplay.toString() === '5'">Five</option>
   </select>
   <button class="btn btn-success btn-custom"
           (click)="toggleAdd()"
