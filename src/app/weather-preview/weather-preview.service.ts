@@ -5,21 +5,19 @@ import {imgMap} from '../models/default-weather';
 import {IWeatherPreview} from '../models/i-weather-preview';
 import {Observable} from 'rxjs/Observable';
 import {DomSanitizer} from '@angular/platform-browser';
-import {tz} from 'moment-timezone';
-
-
-import timezone = require('tz-lookup');
-
 
 
 @Injectable()
 export class WeatherPreviewService {
   weatherRegion: IWeatherRegion = { region: 'Moscow' };
   weather: IWeatherPreview = {
-    region: 'Bangladesh',
-    temperature: 19,
-    time: '20:23',
-    description: 'light shower intensity rain',
+    region: 'Moscow',
+    country: 'RU',
+    temperature: 13,
+    time: '19:13',
+    lon: 37.62,
+    lat: 55.75,
+    description: 'light rain',
     image_path: this.sanitizer.bypassSecurityTrustResourceUrl('https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg')
   };
 
@@ -35,23 +33,8 @@ export class WeatherPreviewService {
   }
 
 
-  getWeather(request: IWeatherRegion) {
-    this.sendRequest(request)
-      .subscribe(data  => {
-        this.weather.region = data['name'];
-        this.weather.description = data['weather'][0]['description'];
-        const timeZ: string = timezone(data['coord']['lat'], data['coord']['lon']);
-        this.weather.lon = data['coord']['lon'];
-        this.weather.lat = data['coord']['lat'];
-        this.weather.country = data['sys']['country'];
-        console.log(timeZ);
-        this.weather.time = tz(data['dt'] * 1000, timeZ).format('HH:mm');
-        this.weather.temperature = data['main']['temp'];
-        let description: string = data['weather'][0]['description'];
-        description += data['weather'][0]['icon'].substr(data['weather'][0]['icon'].length - 1) === 'd' ? '_d' : '_n';
-        const path: string = this.getImageOfWeather(description, data['weather'][0]['id']);
-        this.weather.image_path = this.sanitizer.bypassSecurityTrustResourceUrl(path);
-      });
+  getWeather(request: IWeatherRegion): Observable<Object> {
+    return this.sendRequest(request);
   }
 
   getImageOfWeather(description: string, id: number): string {

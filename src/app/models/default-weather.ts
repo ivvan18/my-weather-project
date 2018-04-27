@@ -1,21 +1,3 @@
-import {IWeatherPreview} from './i-weather-preview';
-
-export const DEFAULT_WEATHER: IWeatherPreview = {
-  region: 'Bangladesh',
-  temperature: 19,
-  time: '20:23',
-  description: 'thunderstorm with light rain',
-  image_path: 'https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg'
-};
-
-export const city_ids = {
-  'Stavropol' : 487846,
-  'Moscow' : 524901,
-  'Kaluga' : 553915,
-  'Vladivostok' : 2013348,
-  'Los Angeles' : 5368381
-};
-
 export const imgMap = {
   'clear sky_d' : '../../assets/weather_icons/skc_d.svg',
   'clear sky_n' : '../../assets/weather_icons/skc_n.svg',

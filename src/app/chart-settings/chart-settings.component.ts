@@ -21,8 +21,6 @@ export class ChartSettingsComponent implements OnInit {
   @Input() optionsToDelete: IChartData[];
 
   ngOnInit() {
-    console.log('On chart Settings:');
-    console.log(this.daysToDisplay);
   }
 
   toggleAdd() {
