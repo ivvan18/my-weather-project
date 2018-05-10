@@ -5,7 +5,7 @@ import {IWeatherRegion} from '../models/i-weather-region';
 import {DomSanitizer} from '@angular/platform-browser';
 
 import {tz} from 'moment-timezone';
-import timezone = require('tz-lookup');
+import * as timezone from 'tz-lookup';
 
 @Component({
   selector: 'app-weather-preview',

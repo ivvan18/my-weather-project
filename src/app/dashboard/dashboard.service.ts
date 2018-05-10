@@ -3,7 +3,7 @@ import {IChartData, IChartEntry} from '../models/i-chart-data';
 import {HttpServiceService} from './http-service.service';
 import {IWeatherRegion} from '../models/i-weather-region';
 import {Observable} from 'rxjs/Observable';
-import moment = require ('moment');
+import * as moment from 'moment';
 
 
 @Injectable()

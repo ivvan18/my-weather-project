@@ -6,8 +6,8 @@ import {ChartSectionComponent} from '../chart-section/chart-section.component';
 import {WeatherPreviewService} from '../weather-preview/weather-preview.service';
 import {DomSanitizer} from '@angular/platform-browser';
 
-import timezone = require('tz-lookup');
-import moment = require ('moment');
+import * as timezone from 'tz-lookup';
+import * as moment from 'moment';
 
 
 @Component({

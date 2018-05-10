@@ -21,17 +21,17 @@ export class WeatherPreviewService {
     image_path: this.sanitizer.bypassSecurityTrustResourceUrl('https://yastatic.net/weather/i/icons/blueye/color/svg/bkn_n.svg')
   };
 
-  private weatherApiUrl: string = 'http://api.openweathermap.org/data/2.5/weather?' +
+  private weatherApiUrl: string = 'https://api.openweathermap.org/data/2.5/weather?' +
     'id=&units=metric&APPID=54381dfe25730288c7afd5e7a8bb0489';
 
-  private defaultWeatherForGeoApiUrl = 'http://api.openweathermap.org/data/2.5/weather?' +
+  private defaultWeatherForGeoApiUrl = 'https://api.openweathermap.org/data/2.5/weather?' +
     'id=524901&units=metric&APPID=54381dfe25730288c7afd5e7a8bb0489';
 
 
   sendRequest(request: IWeatherRegion): Observable<Object> {
     console.log('getWeather: service');
     this.weatherRegion = request;
-    this.weatherApiUrl = this.weatherApiUrl.substr(0, 50) +
+    this.weatherApiUrl = this.weatherApiUrl.substr(0, 51) +
       request.id + this.weatherApiUrl.substr(this.weatherApiUrl.search(/&units/));
     return this.http.get(this.weatherApiUrl);
   }
