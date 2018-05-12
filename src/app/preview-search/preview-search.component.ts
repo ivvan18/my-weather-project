@@ -29,13 +29,14 @@ export class PreviewSearchComponent implements OnInit {
     });
 
     Observable.fromEvent(this.el.nativeElement, 'keyup')
-      .map((e: any) => e.target.value)
+      .map((e: any) => this.prevSearch.getGeneralFormat(e.target.value))
       // .filter((text: string) => text.length > 1)
       .debounceTime(500)
       .distinctUntilChanged()
       .subscribe(
         data => {
           this.autocompleteOptions = this.prevSearch.search(data);
+          console.log('Changed!');
           },
         (err: any) => {
           console.log(err);

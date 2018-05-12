@@ -26,29 +26,55 @@ export class PreviewSearchService {
     //     /// id!!!!
     //   });
     // .....WORKING CODE....
+    if (prefix === '') {
+      this.autoCompleteOptions = [];
+    } else {
 
-    const cities: IWeatherRegion[] = [];
-    // .....WORKING CODE....
-    this.option = this.afdb.list('/');
+      const cities: IWeatherRegion[] = [];
+      // .....WORKING CODE....
+      this.option = this.afdb.list('/');
 
-    this.option.query.orderByKey()
-      .startAt(prefix).endAt(`${prefix}\uf8ff`)
-      .limitToFirst(6)
-      .on('child_added', function (snapshot) {
-        console.log(snapshot.key);
-        console.log(snapshot.val());
+      this.option.query.orderByKey()
+        .startAt(prefix).endAt(`${prefix}\uf8ff`)
+        .limitToFirst(6)
+        .on('child_added', function (snapshot) {
+          console.log(snapshot.key);
+          console.log(snapshot.val());
 
-        cities.push({
-          region: snapshot.key,
-          id: snapshot.val()
+          cities.push({
+            region: snapshot.key,
+            id: snapshot.val()
+          });
         });
-      });
-    // .....WORKING CODE....
+      // .....WORKING CODE....
 
-    this.autoCompleteOptions = cities;
+      this.autoCompleteOptions = cities;
+    }
+
     console.log(this.autoCompleteOptions);
 
     return this.autoCompleteOptions;
   }
 
+  getGeneralFormat(input: string): string {
+    if (input !== undefined) {
+      const words: string[] = input.split(' ');
+      let result = '';
+      for (let i = 0; i < words.length; ++i) {
+        result += this.getFormat(words[i]);
+        if (i !== words.length - 1) {
+          result += ' ';
+        }
+      }
+      return result;
+    } else {return ''; }
+  }
+
+  getFormat(input: string): string {
+    if (input !== undefined && input.length > 1) {
+      return input[0].toUpperCase() + input.substr(1).toLowerCase();
+    } else if (input !== undefined && input.length === 1) {
+      return input[0].toUpperCase();
+    } else { return ''; }
+  }
 }
