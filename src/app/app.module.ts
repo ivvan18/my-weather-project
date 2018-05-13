@@ -12,11 +12,13 @@ import { AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {firebaseConfig} from '../environments/firebase.config';
 import {MapModalModule} from './map-modal/map-modal.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
